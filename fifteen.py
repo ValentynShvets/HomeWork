@@ -81,7 +81,7 @@ def move(board, moved):
 
 def answer():
     while True:
-        moved = int(input("Number to move >>"))
+        moved = int(input("Number to move >> "))
         if 1 <= moved <= 15:
             return moved
         else:
