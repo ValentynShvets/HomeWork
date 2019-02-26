@@ -2,7 +2,6 @@ def print_greeting():
     print("*" * 5, "Hello", "*" * 5)
 
 
-
 def initialize_bord():
     """
 
@@ -39,31 +38,31 @@ def print_bord():
 
 
 def move(board, moved):
-    k = board.index(moved)
-    n = board.index("_")
-    a=0
-    if n - 1 == k and k!=3 and k!=7 and k!=11:
-        m = board[n]
-        board[n] = board[k]
-        board[k] = m
+    possition = board.index(moved)
+    space = board.index("_")
+    a = 0
+    if space - 1 == possition and possition != 3 and possition != 7 and possition != 11:
+        m = board[space]
+        board[space] = board[possition]
+        board[possition] = m
         print(f"Число {moved} переміщено")
 
-    elif n + 1 == k and k!=4 and k!=8 and k!=12:
-        m = board[n]
-        board[n] = board[k]
-        board[k] = m
+    elif space + 1 == possition and possition != 4 and possition != 8 and possition != 12:
+        m = board[space]
+        board[space] = board[possition]
+        board[possition] = m
         print(f"Число {moved} переміщено")
 
-    elif n - 4 == k:
-        m = board[n]
-        board[n] = board[k]
-        board[k] = m
+    elif space - 4 == possition:
+        m = board[space]
+        board[space] = board[possition]
+        board[possition] = m
         print(f"Число {moved} переміщено")
 
-    elif n + 4 == k:
-        m = board[n]
-        board[n] = board[k]
-        board[k] = m
+    elif space + 4 == possition:
+        m = board[space]
+        board[space] = board[possition]
+        board[possition] = m
         print(f"Число {moved} переміщено")
 
     else:
@@ -96,4 +95,4 @@ while check(board):
     move(board, try_move)
     print()
 
-print("Congratulation You have orderedthe bord")
+print("Congratulation You have ordered the bord")
