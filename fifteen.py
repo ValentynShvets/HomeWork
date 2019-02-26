@@ -42,13 +42,13 @@ def move(board, moved):
     k = board.index(moved)
     n = board.index("_")
     a=0
-    if n - 1 == k:
+    if n - 1 == k and k!=3 and k!=7 and k!=11:
         m = board[n]
         board[n] = board[k]
         board[k] = m
         print(f"Число {moved} переміщено")
 
-    elif n + 1 == k:
+    elif n + 1 == k and k!=4 and k!=8 and k!=12:
         m = board[n]
         board[n] = board[k]
         board[k] = m
