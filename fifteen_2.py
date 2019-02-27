@@ -135,10 +135,10 @@ def print_file(board, size):
 def answer():
     while True:
         moved = int(input("Number to move >> "))
-        if 1 <= moved <= 15:
+        if 1 <= moved <= size**2-1:
             return moved
         else:
-            print("Введіть число від 1 до 15")
+            print(f"Введіть число від 1 до {size**2-1} ")
 
 
 size = size()
