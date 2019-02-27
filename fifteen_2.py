@@ -27,7 +27,6 @@ def initialize_bord(size):
     board.append(1)
     board.append(2)
     board.append("_")
-    # board = [15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 1, 2, "_"]
 
     return board
 
@@ -103,14 +102,6 @@ def move(board, moved, size, imp1, imp2):
         print("Це число перемістити не можна")
 
     return board
-    # for i in board:
-    #     print(i, end="\t")
-    #     a += 1
-    #     if a == 4:
-    #         print()
-    #         print("_______________")
-    #         a = 0
-    # return board
 
 
 def impossible_move1(size):
