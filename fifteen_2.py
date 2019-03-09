@@ -43,7 +43,7 @@ def check(board):
     for win in range(1, size ** 2):
         winlist.append(win)
 
-    winlist = winlist[::-1]
+    #winlist = winlist[::-1]
     winlist.append("_")
 
     if board == winlist:
@@ -61,7 +61,6 @@ def print_bord(board, size):
         a += 1
         if a == size:
             print()
-            print("__" * size * 2)
             a = 0
 
     return board
@@ -72,8 +71,8 @@ def move(board, moved, size, imp1, imp2):
     space = board.index("_")
     # a = 0
     b = possition in imp1
-
     c = possition in imp2
+
     if space - 1 == possition and not b:
         m = board[space]
         board[space] = board[possition]
