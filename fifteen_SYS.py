@@ -5,16 +5,22 @@ def print_greeting():
 
 def size():
     size = 0
-    while size == 0:
-        if not sys.argv[1].isdigit():
-            print("Введіть розмір від 3 до 9")
-            exit(1)
-        if sys.argv[1].isdigit():
-            if 3 > int(sys.argv[1]) or int(sys.argv[1]) > 9:
+    if len(sys.argv) != 2:
+        print("Введіть розмір поля")
+        exit(1)
+
+    else:
+        while size == 0:
+
+            if not sys.argv[1].isdigit():
                 print("Введіть розмір від 3 до 9")
-                exit(2)
-            else:
-                size = int(sys.argv[1])
+                exit(1)
+            if sys.argv[1].isdigit():
+                if 3 > int(sys.argv[1]) or int(sys.argv[1]) > 9:
+                    print("Введіть розмір від 3 до 9")
+                    exit(2)
+                else:
+                    size = int(sys.argv[1])
     return size
 
 
