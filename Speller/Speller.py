@@ -76,7 +76,3 @@ print(count)
 finist_time = time.time()
 app_time = round(finist_time - start_time, 2)
 print(f"Program running {app_time}s")
-
-# print(alice.file())
-#print(alice.file())
-#alice.abort(alice.file())
