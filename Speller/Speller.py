@@ -17,7 +17,7 @@ def load1():
 
 def load2():
 
-    dictionar = str(sys.argv[1])
+    dictionar = str(sys.argv[2])
 
     return dictionar
 
@@ -28,12 +28,13 @@ class Alice:
         self.dictionar = dictionar
         self.dictin = dictin
 
-    def clear_text(self, words = ""):
+    def clear_text(self):
         file = open(self.file, "r")
         word = file.read()
         words = word.replace(",", "").replace(".", "").replace("?", "").replace("!", "")\
             .replace("'s", "").replace(":", "").replace(";", "").replace('"', "").replace("'", "")\
-            .replace("-", "")
+            .replace("-", "").replace("(", "").replace(")","")\
+            .replace("[", "").replace("]", "").replace("*", "")
         words = words.lower().split()
         file.close()
         return words
@@ -41,8 +42,8 @@ class Alice:
     def abort(self, words):
         for i in words:
             if not i.isalpha():
-                words.remove(i)
 
+                words.remove(i)
 
         return words
 
@@ -62,14 +63,12 @@ class Alice:
 
 alice1 = load1()
 alice2 = load2()
-print(alice1)
-alice = Alice(alice1,alice2)
-print(alice.abort(alice.clear_text()))
+alice = Alice(alice1, alice2)
 tez = alice.abort(alice.clear_text())
 alice.check(tez)
 
 
-count =  Counter(alice.abort(alice.clear_text()))
+count = Counter(alice.abort(alice.clear_text()))
 print(count)
 
 
