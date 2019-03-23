@@ -28,8 +28,7 @@ while b == 0:
         main_text = quote.find("span", attrs={'class': "text"})
         author_text = authors[i].find("small", attrs={'class': "author"})
         print(i + 1, main_text.text[1:-1], "by", author_text.text)
-        tetx.write(str(i + 1 ))
-        tetx.write(" " + main_text.text[1:-1] + " by "+ author_text.text + "\n")
+        tetx.write(str(i + 1 ) + " " + main_text.text[1:-1] + " by "+ author_text.text + "\n")
 
     for next in soup.find_all("li", attrs={"class": "next"}):
         for next1 in next.find_all("a"):
