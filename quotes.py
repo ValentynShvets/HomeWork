@@ -2,15 +2,12 @@ import urllib3
 import sqlite3
 from bs4 import BeautifulSoup
 
-# conn = sqlite3.connect("my.sql")
 http = urllib3.PoolManager()
 url = 'http://quotes.toscrape.com/'
 r = http.request("GET", url)
 conn = sqlite3.connect("my.sql")
 cur = conn.cursor()
-# cur.execute("""CREATE TABLE authors
-# #                   (id, authors)
-# #                """)
+
 
 tetx = open("crap.txt", "w")
 soup = BeautifulSoup(r.data, 'html.parser')
@@ -47,7 +44,7 @@ while b == 0:
 
 
 
-        # if author_text.text
+
         cur.execute("SELECT id FROM authors WHERE authors = ?", (author_text.text,))
         data = cur.fetchone()
 
@@ -58,13 +55,7 @@ while b == 0:
             a += 1
             print(cur.fetchall())
 
-            # cur.execute('insert into phrases values id_authors = ?', (a,))
 
-
-        else:
-            # print(cur.fetchall())
-            pass
-            # cur.execute(f'insert into authors values ({a},{author_text.text})')
 
         cur.execute("SELECT id FROM authors WHERE authors = ?", (author_text.text,))
         id_author = cur.fetchone()
