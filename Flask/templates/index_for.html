@@ -1,0 +1,29 @@
+{%extends "base.html"%}
+
+{% block title %}
+Quotes
+{% endblock %}
+
+{%block content%}
+{%for item in items%}
+<p>
+<b>{{item['text']}}</b>
+by <i>{{item['author']}}</i>
+
+</p>
+{%endfor%}
+
+
+{%if page == 1%}
+<a href={{nextp}} > Next page</a>
+{%elif page == 10%}
+<a href={{previous}} > Previous page</a>
+{%else%}
+<a href={{previous}} > Previous page</a>
+<a href={{nextp}} > Next page</a>
+
+{%endif%}
+
+
+
+{% endblock %}
