@@ -1,0 +1,60 @@
+{%extends "polls/base.html" %}
+
+{%block title%}Questions{%endblock%}
+
+{%block main%}
+<!--{% if choice %}-->
+<!--    <ul>-->
+<!--    {% for q in choice %}-->
+<!--        <li>{{ q.choice_text }}</li>-->
+<!--    {% endfor %}-->
+<!--    </ul>-->
+<!--{% else %}-->
+<!--    <p>No choice are available.</p>-->
+<!--{% endif %}-->
+<center>
+<h1>{{ question.question_text }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<!--<form action="{% url 'polls:vote' question.id %}" method="post">-->
+<!--{% csrf_token %}-->
+<!--{% for choice in question.choice_set.all %}-->
+<!--    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">-->
+<!--    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }} [ {{ choice.votes }} ] votes  <input type="submit" value="Vote"></label><br>-->
+
+<!--    {% endfor %}-->
+
+<!--    </form>-->
+<!-- -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;<br>-->
+<!--<form action="{% url 'polls:vote' question.id %}" method="post">-->
+<!--{% csrf_token %}-->
+<!--{% for choice in question.choice_set.all %}-->
+<!--    <label>{{ choice.choice_text }}   <input type="submit" name="choice" id="choice{{ forloop.counter }}" value="👍{{ choice.votes }}  {{ choice.id }}"></label><br>-->
+<!--    {% endfor %}-->
+<!--</form>-->
+
+
+<form  action = "{% url 'polls:vote' question.id %}" method = "post">
+    {% csrf_token %}
+{% for choice in question.choice_set.all %}
+    {{ choice.choice_text }}
+    <button type="submit" name="choice"  value="{{ choice.id }}" >+1👍</button>
+
+        <button type="submit" name="minus" value="{{ choice.id }}" >-1👎</button>
+ ({{ choice.votes }})<br>
+    {% endfor %}
+</form>
+
+{%if question.id == 1%}
+
+<a href="/polls/{{next}}">{{next_q}}</a>
+{%elif question.id == last%}
+    <a href="/polls/{{prev}}">{{prev_q}}</a>
+{%else%}
+<a href="/polls/{{prev}}">{{prev_q}}</a>
+<a href="/polls/{{next}}">{{next_q}}</a>
+
+{%endif%}
+</center>
+{%endblock%}
